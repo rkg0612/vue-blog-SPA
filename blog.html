@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog App trial</title>
+	<script src="vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<center>
+<div class="container">
+	<div id="blogapp">
+		<h1>BLOGS</h1>
+		<hr>
+			<div class="row">
+				<div class="well" id="blogposts" v-for="(x, index) of blogs">
+					<div class="panel panel-success" :id="index">
+						<div class="panel-heading">
+						<h2> {{ x.title }} </h2>
+						</div>
+
+						<div class="panel-body">
+						<p><small> {{ x.content }} </small></p>
+						</div>
+
+						<div class="panel-footer">
+							<button class="btn btn-info" @click="editblog(index)">Edit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<br>
+				<hr>
+				<h1>Add New Blog:</h1>
+				<hr>
+					<form class="" action="" method="" v-on:submit.prevent="">
+		            <div class="form-group">
+		              <label for="title"><span class="glyphicon glyphicon-pushpin"></span> Title </label>
+		              <input type="text" class="form-control" id="title" name="" placeholder="Blog Title" value="" autocomplete="off" v-model="title">
+		            </div>
+					<br>
+		            <div class="form-group">
+		              <label for="content"> <span class="glyphicon glyphicon-pencil"></span> Content</label>
+		              <textarea class="form-control" name="" placeholder="Enter you blog content here..." rows="" cols="" autocomplete="off" v-model="content"></textarea>
+		            </div>
+
+		            <button v-if="seenNew" class="btn btn-success" type="submit" name="action" v-on:click="addblog">Submit Post
+		            </button>
+		            <button v-if="seenUpd" class="btn btn-info" type="submit" name="action" v-on:click="updBlog">Update Post
+		            </button>
+		          </form>
+			</div>
+	</div>
+	<div>
+		<hr><br>
+	</div>
+</div>
+
+</body>
+<script src="blog.js"></script>
+</html>
